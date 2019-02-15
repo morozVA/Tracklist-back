@@ -1,0 +1,87 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Filter</span>
+            </h4>
+
+            <form class="card p-2" action="#" method="get">
+                <div class="form-group">
+                    <label for="Singer">Singer/band</label>
+                    <select class="form-control" id="Singer">
+                        {% for item in singerList %}
+                            <option value="{{ item.singer }}">{{ item.singer }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Genre">Genre</label>
+                    <select class="form-control" id="Genre">
+                        {% for item in genreList %}
+                            <option value="{{ item.genre }}">{{ item.genre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Year">Year</label>
+                    <select class="form-control" id="Year">
+                        {% for item in yearList %}
+                            <option value="{{ item.year }}">{{ item.year }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Playlist</span>
+            </h4>
+
+            <table id="example" class="table table-bordered table-hover dataTable" role="grid"
+                   aria-describedby="example_info">
+                <thead>
+                <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                        aria-label="Track">Track
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                        aria-label="Singer/Band">Singer/Band
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                        aria-label="Genre">Genre
+                    </th>
+                    <th class="nosort">Year
+                    </th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+                        aria-label="Duration">Duration
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in playlist %}
+                    <tr role="row">
+                        <td class="sorting_1">{{ item.track }}</td>
+                        <td class="sorting_1">{{ item.singer }}</td>
+                        <td class="sorting_1">{{ item.genre }}</td>
+                        <td class="sorting_1">{{ item.year }}</td>
+                        <td class="sorting_1">{{ item.duration }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th rowspan="1" colspan="1">Track</th>
+                    <th rowspan="1" colspan="1">Singer/Band</th>
+                    <th rowspan="1" colspan="1">Genre</th>
+                    <th rowspan="1" colspan="1">Year</th>
+                    <th rowspan="1" colspan="1">Duration</th>
+                </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

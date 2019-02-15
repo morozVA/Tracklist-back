@@ -1,0 +1,13 @@
+BloggerBlogBundle_homepage:
+  path:     /
+  defaults: { _controller: "BloggerBlogBundle:Playlist:index" }
+  requirements:
+    methods:  GET
+
+
+BloggerBlogBundle_playlist_show:
+  path:  /{id}
+  defaults: { _controller: "BloggerBlogBundle:Playlist:show" }
+  requirements:
+    methods:  GET
+    id: \d+
